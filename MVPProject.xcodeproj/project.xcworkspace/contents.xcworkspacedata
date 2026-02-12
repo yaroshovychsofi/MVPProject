@@ -4,4 +4,22 @@
    <FileRef
       location = "self:">
    </FileRef>
+   <FileRef
+      location = "group:NetworkServiceProtocol.swift">
+   </FileRef>
+   <FileRef
+      location = "group:ExchangeRate.swift">
+   </FileRef>
+   <FileRef
+      location = "group:RatePresenter.swift">
+   </FileRef>
+   <FileRef
+      location = "group:RateView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:RateViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MVPProjectTests.swift">
+   </FileRef>
 </Workspace>
