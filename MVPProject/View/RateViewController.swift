@@ -15,9 +15,10 @@ class RateViewController: UIViewController, RateView {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Current Rate"
+        label.text = "Current Rate "
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.numberOfLines = 0
         return label
     }()
 
@@ -33,16 +34,17 @@ class RateViewController: UIViewController, RateView {
         view.addSubview(loader)
 
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalTo(view.safeAreaLayoutGuide)
+            make.trailing.equalTo(view.safeAreaLayoutGuide)
             make.centerY.equalToSuperview()
-            make.height.equalTo(30)
+            make.height.greaterThanOrEqualTo(30)
         }
         getRateButton.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(200)
-            make.height.equalTo(30)
+            make.trailing.lessThanOrEqualToSuperview().offset(20)
+            make.leading.greaterThanOrEqualToSuperview().offset(-20)
+            make.height.greaterThanOrEqualTo(30)
         }
         loader.snp.makeConstraints { make in
             make.leading.equalTo(getRateButton.snp.trailing).offset(10)
@@ -53,7 +55,7 @@ class RateViewController: UIViewController, RateView {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupLayout()
         getRateButton.addTarget(self, action: #selector(getRate), for: .touchUpInside)
     }
@@ -77,6 +79,6 @@ class RateViewController: UIViewController, RateView {
     }
 
     func showError(_ error: any Error) {
-        titleLabel.text = "Error: \(error)"
+        titleLabel.text = (error.localizedDescription)
     }
 }
