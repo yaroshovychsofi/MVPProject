@@ -10,11 +10,11 @@ import Foundation
 
 class RatePresenter: AnyObject {
     private let service: NetworkServiceProtocol
-    private weak var rateView: RateView?
+    private weak var rateView: RateViewProtocol?
     
     private var isLoading: Bool = false
     
-    init(service: NetworkServiceProtocol = NetworkService(), rateView: RateView) {
+    init(rateView: RateViewProtocol, service: NetworkServiceProtocol) {
         self.service = service
         self.rateView = rateView
     }

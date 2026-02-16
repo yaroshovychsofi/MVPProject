@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Configure and attach the UIWindow to the provided UIWindowScene if using a storyboard.
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = RateViewController()
+        window.rootViewController = RateModule.build()
         window.makeKeyAndVisible()
 
         self.window = window

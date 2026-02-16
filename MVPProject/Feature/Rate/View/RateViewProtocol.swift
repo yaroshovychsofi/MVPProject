@@ -6,7 +6,7 @@
 //  Copyright © 2026 MVPProject. All rights reserved.
 //
 
-protocol RateView: AnyObject {
+protocol RateViewProtocol: AnyObject {
     func setLoading(_ isLoading: Bool)
     func showRate(_ rate: ExchangeRate)
     func showError(_ error: Error)

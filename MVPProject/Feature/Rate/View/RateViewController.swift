@@ -9,8 +9,8 @@
 import UIKit
 import SnapKit
 
-class RateViewController: UIViewController, RateView {
-    private lazy var presenter = RatePresenter(rateView: self)
+class RateViewController: UIViewController {
+    var presenter: RatePresenter?
     private var loader = UIActivityIndicatorView(style: .medium)
 
     private let titleLabel: UILabel = {
@@ -61,9 +61,11 @@ class RateViewController: UIViewController, RateView {
     }
 
     @objc private func getRate() {
-        presenter.didTapGetRate()
+        presenter?.didTapGetRate()
     }
+}
 
+extension RateViewController: RateViewProtocol {
     func setLoading(_ isLoading: Bool) {
         getRateButton.isEnabled = !isLoading
         if isLoading {
